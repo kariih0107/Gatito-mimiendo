@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gatito Animado</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cat Animation</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <p>Cat<span>Nap</span></p>
-
-    <div class="container">
-        <div class="cat" onclick="this.classList.toggle('active');">
+    <div class="container" onclick="showMessage()">
+        <div class="cat">
             <div class="head">
                 <div class="ears">
                     <div></div>
@@ -48,9 +47,8 @@
             </div>
         </div>
     </div>
-
     <div class="bg"></div>
-
-    <div class="message">Te quiero</div>
+    <div id="message" class="message">Te quiero</div>
+    <script src="script.js"></script>
 </body>
 </html>
