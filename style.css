@@ -1,177 +1,238 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
-    height: 100%;
-    width: 100%;
-    background: #344661;
-    overflow: hidden;
+    background-color: #a8d0e6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
 }
 
 p {
-    padding: 24px;
-    margin: 0;
-    position: absolute;
-    color: #d9d9d9;
-    font-size: 2.4rem;
-    font-family: "Assistant";
-    top: 0;
-}
-
-p span {
-    color: #a6a6a6;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
 }
 
 .container {
-    position: absolute;
-    left: calc(50% - 63px);
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    width: 150px;
+    height: 200px;
     cursor: pointer;
 }
 
 .cat {
-    width: 115px;
-    height: 220px;
+    position: relative;
+    animation: move 5s linear infinite;
+}
+
+@keyframes move {
+    0% { transform: translateX(-150px); }
+    100% { transform: translateX(100vw); }
 }
 
 .head {
-    background: #fff;
-    width: 114px;
-    height: 100px;
-    border-radius: 141% 98% 55% 189%;
     position: absolute;
-    top: 15px;
-    transform: translateY(10px);
-    z-index: 25;
-    animation: sleep 4s ease-out infinite;
+    width: 80px;
+    height: 80px;
+    background-color: #f9d5a7;
+    border-radius: 50%;
+    top: 10px;
+    left: 35px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes sleep {
-    0% {
-        transform: translateY(10px);
-    }
-    50% {
-        transform: translateY(0px);
-    }
-    100% {
-        transform: translateY(10px);
-    }
-}
-
-.ears > div {
-    height: 20px;
-    width: 2px;
+.ears {
     position: absolute;
-    left: 64px;
-    top: -28px;
-    border-bottom: 40px solid #fff;
-    border-left: 30px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 0px solid transparent;
-    transform-origin: bottom;
-}
-
-.ears > div:nth-child(2) {
-    left: 10px;
-    transform: rotate(-22deg);
-}
-
-.face {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    padding-top: 25px;
-    flex-direction: column;
-    position: relative;
-    z-index: 1;
-}
-
-.eyes {
-    display: flex;
-    justify-content: space-evenly;
     width: 100%;
+    height: 100%;
 }
 
-.eyes > div {
-    height: 20px;
-    width: 20px;
-    background: #fff;
+.ears div {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #f9d5a7;
     border-radius: 50%;
 }
 
-.nose {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.ears div:first-child {
+    top: -10px;
+    left: 5px;
+    transform: rotate(-45deg);
 }
 
-.nose:before {
-    content: "";
-    height: 0px;
-    width: 0px;
-    border-top: 6px solid #b7b7b7;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    margin-top: 4px;
+.ears div:last-child {
+    top: -10px;
+    right: 5px;
+    transform: rotate(45deg);
+}
+
+.face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.eyes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.eyes div {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.eyes div:first-child {
+    top: 30px;
+    left: 15px;
+}
+
+.eyes div:last-child {
+    top: 30px;
+    right: 15px;
+}
+
+.nose {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #f76c6c;
+    border-radius: 50%;
 }
 
 .mustache {
     position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
-.mustache > div {
-    height: 12px;
-    width: 3px;
-    background: #b7b7b7;
-    transform: rotate(90deg);
+.mustache div {
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background-color: #000;
+}
+
+.mustache div:nth-child(1) {
+    top: 5px;
+}
+
+.mustache div:nth-child(2) {
+    top: 10px;
+}
+
+.mustache div:nth-child(3) {
+    top: 15px;
+}
+
+.mustache:first-child {
+    left: -40px;
+    transform: rotate(-15deg);
+}
+
+.mustache:last-child {
+    right: -40px;
+    transform: rotate(15deg);
 }
 
 .body {
-    background: #fff;
-    width: 236px;
-    height: 120px;
-    border-radius: 237% 242% 196% 216%;
     position: absolute;
-    top: 51px;
+    width: 80px;
+    height: 100px;
+    background-color: #f9d5a7;
+    border-radius: 50%;
+    top: 90px;
+    left: 35px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .tail {
-    width: 85px;
-    height: 120px;
     position: absolute;
-    left: 100px;
-    top: 44%;
-    border-radius: 200px;
-    box-shadow: inset 10px 34px 0px #fff;
+    width: 20px;
+    height: 60px;
+    background-color: #f9d5a7;
+    border-radius: 20px;
+    top: 110px;
+    left: 0;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    animation: wag 1s infinite;
 }
 
-.bg {
-    background: #415675;
-    width: 100%;
-    height: 50vh;
+@keyframes wag {
+    0%, 100% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        transform: rotate(-30deg);
+    }
+}
+
+.sleep {
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    font-size: 24px;
+    color: #555;
+}
+
+.sleep div {
+    animation: sleep 1s infinite;
+}
+
+.sleep div:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.sleep div:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.sleep div:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.sleep div:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.sleep div:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+@keyframes sleep {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .message {
     position: absolute;
-    top: 20px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    font-size: 2rem;
-    color: #fff;
-    display: none; /* Oculto por defecto */
-    opacity: 0;
-    transition: opacity 0.5s;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: #f76c6c;
+    display: none;
+    animation: fadeIn 1s ease-in-out forwards;
 }
 
-.cat.active + .message {
-    display: block; /* Muestra el mensaje */
-    opacity: 1; /* Hace visible el mensaje */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
